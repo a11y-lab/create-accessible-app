@@ -1,0 +1,22 @@
+{
+  "name": "create-accessible-app",
+  "version": "0.0.0",
+  "description": "By one command, create modern accessible web app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a11y-lab/create-accessible-app.git"
+  },
+  "keywords": [
+    "Accessibility"
+  ],
+  "author": "taejs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/a11y-lab/create-accessible-app/issues"
+  },
+  "homepage": "https://github.com/a11y-lab/create-accessible-app#readme"
+}
