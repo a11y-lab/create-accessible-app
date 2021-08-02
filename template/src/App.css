@@ -1,0 +1,15 @@
+.app {
+  text-align: center;
+}
+
+.greeting {
+  background-color: #ffffff;
+  min-height: 100vh;
+  font-size: 20px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}

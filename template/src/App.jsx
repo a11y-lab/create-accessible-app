@@ -1,0 +1,14 @@
+import React from 'react';
+import './App.css';
+
+function App() {
+  return (
+    <div className="app">
+      <header className="greeting">
+        Digital Accessibility Benefits Everyone
+      </header>
+    </div>
+  );
+}
+
+export default App;
