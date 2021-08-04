@@ -1,0 +1,12 @@
+# Ignore artifacts:
+dist
+coverage
+
+# Template files have own format configuration.
+template
+
+# Ignore all HTML files:
+*.html
+*.json
+
+node_modules
