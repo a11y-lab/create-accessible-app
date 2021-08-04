@@ -1,34 +1,34 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var relative = '../template';
+var path = require("path");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+var relative = "../template";
 
 // Webpack configuration for development.
 // Production configuration is focused on light bundle and fast build.
 module.exports = {
-  mode: 'production',
+  mode: "production",
   // By defaults, use webpack-terser-plugin for optimization.
   optimization: {
     minimize: true,
   },
-  entry: './template/src/index.jsx',
+  entry: "./template/src/index.jsx",
   output: {
-    filename: 'static/js/[name].[chunkhash:8].js',
-    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
+    filename: "static/js/[name].[chunkhash:8].js",
+    chunkFilename: "static/js/[name].[chunkhash:8].chunk.js",
     // Path for static assets.
-    publicPath: '/',
+    publicPath: "/",
     // The build folder.
-    path: path.join(__dirname, '../dist'),
+    path: path.join(__dirname, "../dist"),
   },
   // Attempt to resolve these extensions in order.
   // if import App from './App', webpack find a file from it. 'App.js', 'App.jsx', 'App.json'.
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx"],
   },
   plugins: [
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve(__dirname, relative, 'index.html'),
+      template: path.resolve(__dirname, relative, "index.html"),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -39,32 +39,32 @@ module.exports = {
         keepClosingSlash: true,
         minifyJS: true,
         minifyCSS: true,
-        minifyURLs: true
-      }
+        minifyURLs: true,
+      },
     }),
   ],
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        include: path.resolve(__dirname, relative, 'src'),
+        include: path.resolve(__dirname, relative, "src"),
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          }
-        }
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
       },
       {
         test: /\.css$/,
-        include: path.resolve(__dirname, relative, 'src'),
+        include: path.resolve(__dirname, relative, "src"),
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
           },
         ],
       },
@@ -72,13 +72,13 @@ module.exports = {
         test: /\.(mp4|webm)$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: "url-loader",
             options: {
               limit: 8192,
             },
           },
         ],
-      }
+      },
     ],
   },
 };
