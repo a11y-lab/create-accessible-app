@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-dev": "webpack serve --config ./config/webpack.config.dev.js",
     "build": "webpack --config ./config/webpack.config.prod.js",
-    "format": "prettier --write \"**/*.{js, jsx}\""
+    "format": "prettier --write \"**/*.{js, jsx}\"",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
