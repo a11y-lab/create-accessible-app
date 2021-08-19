@@ -22,7 +22,7 @@ module.exports = {
     port: 9000,
     filename: "bundle.js",
   },
-  entry: "./template/src/index.jsx",
+  entry: "./packages/cally-builder/template/src/index.jsx",
   // Attempt to resolve these extensions in order
   // if import App from './App', webpack find a file from it. 'App.js', 'App.jsx', 'App.json'
   resolve: {
@@ -32,7 +32,7 @@ module.exports = {
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve(__dirname, relative, "index.html"),
+      template: path.resolve(__dirname, relative, "public/index.html"),
     }),
   ],
   module: {

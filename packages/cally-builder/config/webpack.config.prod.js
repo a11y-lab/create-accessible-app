@@ -10,7 +10,7 @@ module.exports = {
   optimization: {
     minimize: true,
   },
-  entry: "./template/src/index.jsx",
+  entry: "./packages/cally-builder/template/src/index.jsx",
   output: {
     filename: "static/js/[name].[chunkhash:8].js",
     chunkFilename: "static/js/[name].[chunkhash:8].chunk.js",
@@ -28,7 +28,7 @@ module.exports = {
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve(__dirname, relative, "index.html"),
+      template: path.resolve(__dirname, relative, "public/index.html"),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
