@@ -1,7 +1,6 @@
-var path = require("path");
-var webpack = require("webpack");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
-var relative = "../template";
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const paths = require("./paths");
 
 // Webpack configuration for development
 // Development configuration is focused on easy debugging and fast rebuilds.
@@ -14,32 +13,31 @@ module.exports = {
   // Run webpack-dev-server
   devServer: {
     // Tell the server where to serve content from. This is only necessary if you want to serve static files.
-    contentBase: path.join(__dirname, "dist"),
+    static: {
+      directory: paths.appPublic,
+    },
     // Enable gzip compression for everything served:
     compress: true,
-    // The bundled files will be available in the browser under this path.
-    publicPath: "/",
     port: 9000,
-    filename: "bundle.js",
   },
-  entry: "./packages/cally-builder/template/src/index.jsx",
+  entry: paths.appIndexJs,
   // Attempt to resolve these extensions in order
   // if import App from './App', webpack find a file from it. 'App.js', 'App.jsx', 'App.json'
   resolve: {
-    extensions: [".js", ".jsx", ".json"],
+    extensions: [".js", ".jsx", ".json", ""],
   },
   plugins: [
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve(__dirname, relative, "public/index.html"),
+      template: paths.appHtml,
     }),
   ],
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
+        include: paths.appSrc,
         use: {
           loader: "babel-loader",
           options: {
@@ -50,7 +48,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: path.resolve(__dirname, relative, "src"),
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {

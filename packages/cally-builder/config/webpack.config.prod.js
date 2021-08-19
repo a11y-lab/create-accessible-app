@@ -1,6 +1,5 @@
-var path = require("path");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
-var relative = "../template";
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const paths = require("./paths");
 
 // Webpack configuration for development.
 // Production configuration is focused on light bundle and fast build.
@@ -10,14 +9,12 @@ module.exports = {
   optimization: {
     minimize: true,
   },
-  entry: "./packages/cally-builder/template/src/index.jsx",
+  entry: paths.appSrc,
   output: {
     filename: "static/js/[name].[chunkhash:8].js",
     chunkFilename: "static/js/[name].[chunkhash:8].chunk.js",
-    // Path for static assets.
     publicPath: "/",
-    // The build folder.
-    path: path.join(__dirname, "../dist"),
+    path: paths.appDist,
   },
   // Attempt to resolve these extensions in order.
   // if import App from './App', webpack find a file from it. 'App.js', 'App.jsx', 'App.json'.
@@ -28,7 +25,7 @@ module.exports = {
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve(__dirname, relative, "public/index.html"),
+      template: paths.appHtml,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -47,7 +44,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        include: path.resolve(__dirname, relative, "src"),
+        include: paths.appSrc,
         use: {
           loader: "babel-loader",
           options: {
@@ -57,7 +54,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: path.resolve(__dirname, relative, "src"),
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
