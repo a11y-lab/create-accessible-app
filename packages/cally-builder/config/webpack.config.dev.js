@@ -20,7 +20,7 @@ module.exports = {
     compress: true,
     port: 9000,
   },
-  entry: paths.appIndexJs,
+  entry: ["./packages/cally-auditor/webpackHotDevClient", paths.appIndexJs],
   // Attempt to resolve these extensions in order
   // if import App from './App', webpack find a file from it. 'App.js', 'App.jsx', 'App.json'
   resolve: {
