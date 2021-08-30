@@ -14,6 +14,7 @@
     "@babel/core": "7.14.2",
     "@babel/preset-react": "^7.14.5",
     "anser": "1.4.10",
+    "axe-core": "^4.3.3",
     "babel-loader": "8.2.2",
     "chalk": "2.4.2",
     "chokidar": "^3.5.1",
