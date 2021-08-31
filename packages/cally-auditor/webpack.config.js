@@ -28,6 +28,11 @@ module.exports = {
     alias: {
       iframeScript$: path.resolve(__dirname, "./lib/iframe-bundle.js"),
     },
+    fallback: {
+      crypto: require.resolve("crypto-browserify"),
+      buffer: require.resolve("buffer"),
+      stream: require.resolve("stream-browserify"),
+    },
   },
   optimization: {
     nodeEnv: false,
