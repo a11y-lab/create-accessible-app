@@ -6,18 +6,8 @@ import { applyStyles } from "../utils/css";
 
 let iframeRoot = null;
 
-function render({ onSourceCodeChange }) {
-  return (
-    <Overlay>
-      <button
-        onClick={() => {
-          onSourceCodeChange();
-        }}
-      >
-        trigger event
-      </button>
-    </Overlay>
-  );
+function render({ currentValue }) {
+  return <Overlay>{currentValue}</Overlay>;
 }
 
 window.updateContent = function updateContent(overlayProps) {

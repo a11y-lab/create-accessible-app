@@ -2,9 +2,8 @@ const url = require("url");
 const AuditOverlay = require("./lib");
 const wdsSocketPath = "ws";
 
-AuditOverlay.setSourceCodeHandler(() => {
-  console.log("triggered");
-});
+// init overlay
+AuditOverlay.update();
 
 // Connect to WebpackDevServer via a socket.
 const connection = new WebSocket(
