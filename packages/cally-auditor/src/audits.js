@@ -49,7 +49,7 @@ const auditsGroup = {
 // https://github.com/dequelabs/axe-core/blob/396774511adbcac7833cb239863f0cacf9783af1/doc/rule-descriptions.md
 // Refs lighthouse
 
-const accessibilityAudits = [
+export const accessibilityAudits = [
   { id: "accesskeys", weight: 3, group: "a11y-navigation" },
   { id: "aria-alt", weight: 10, group: "a11y-aria" },
   { id: "aria-allowed-attr", weight: 10, group: "a11y-aria" },
