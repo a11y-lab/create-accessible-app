@@ -3,11 +3,16 @@ import ReactDOM from "react-dom";
 import Overlay from "./components/Overlay";
 import { overlayStyle } from "./styles";
 import { applyStyles } from "../utils/css";
+import Progress from "./components/Progress";
 
 let iframeRoot = null;
 
 function render({ currentValue }) {
-  return <Overlay>{currentValue}</Overlay>;
+  return (
+    <Overlay>
+      <Progress value={currentValue} />
+    </Overlay>
+  );
 }
 
 window.updateContent = function updateContent(overlayProps) {
