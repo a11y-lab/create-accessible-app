@@ -1,5 +1,5 @@
 import { applyStyles } from "./utils/css";
-import { iframeStyle } from "./iframe/styles";
+import { expandedIframeStyle, iframeStyle } from "./iframe/styles";
 
 // Importing iframe-bundle generated in the pre build step as
 // a text using webpack raw-loader. See webpack.config.js file.
@@ -9,6 +9,11 @@ import runAxe from "./utils/runAxe";
 let iframe = null;
 let isLoadingIframe = false;
 let isIframeReady = false;
+
+const onClickOverlay = (willShowDialog) => {
+  if (!iframe) return;
+  applyStyles(iframe, willShowDialog ? expandedIframeStyle : iframeStyle);
+};
 
 // use an iframe to identify auditor easily in document
 export const update = () => {
@@ -55,6 +60,7 @@ export const updateIframeContent = () => {
         // render accessibility score to overlay
         const isRendered = iframe.contentWindow.updateContent({
           currentValue: score,
+          onClickOverlay,
         });
 
         if (!isRendered) {
