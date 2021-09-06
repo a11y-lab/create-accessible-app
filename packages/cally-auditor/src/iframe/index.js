@@ -29,6 +29,7 @@ window.updateContent = function updateContent(overlayProps) {
 document.body.style.margin = "0";
 // Keep popup within body boundaries for iOS Safari
 document.body.style["max-width"] = "100vw";
+document.body.style["background-color"] = "transparent";
 iframeRoot = document.createElement("div");
 applyStyles(iframeRoot, overlayStyle);
 document.body.appendChild(iframeRoot);

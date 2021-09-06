@@ -25,6 +25,7 @@ export const update = () => {
   const loadingIframe = window.document.createElement("iframe");
   loadingIframe.id = "__CREATE_ACCESSIBLE_APP_AUDIT_IFRAME__";
   loadingIframe.title = "accessibility audits overlay";
+  loadingIframe.allowtransparency = "true";
 
   applyStyles(loadingIframe, iframeStyle);
   loadingIframe.onload = function () {
