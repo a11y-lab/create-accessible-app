@@ -6,9 +6,13 @@ import { applyStyles } from "../utils/css";
 
 let iframeRoot = null;
 
-function render({ currentValue, onClickOverlay }) {
+function render({ currentValue, onClickOverlay, results }) {
   return (
-    <Overlay currentValue={currentValue} onClickOverlay={onClickOverlay} />
+    <Overlay
+      currentValue={currentValue}
+      onClickOverlay={onClickOverlay}
+      results={results}
+    />
   );
 }
 

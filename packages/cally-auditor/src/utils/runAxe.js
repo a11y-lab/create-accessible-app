@@ -50,7 +50,7 @@ const runAxe = ({ onSuccess }) => {
     .then((results) => {
       const numericScore = calcScore(results);
       const scoreOutOf100 = Math.round(numericScore * 100);
-      onSuccess(scoreOutOf100);
+      onSuccess(scoreOutOf100, results);
     })
     .catch((err) => {
       console.error("Something bad happened:", err.message);

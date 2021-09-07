@@ -56,10 +56,11 @@ export const updateIframeContent = () => {
   // delay to wait until react render
   setTimeout(() => {
     runAxe({
-      onSuccess: (score) => {
+      onSuccess: (score, results) => {
         // render accessibility score to overlay
         const isRendered = iframe.contentWindow.updateContent({
           currentValue: score,
+          results,
           onClickOverlay,
         });
 

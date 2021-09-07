@@ -18,7 +18,7 @@ const overlayStyle = {
 
 let iframeWindow = null;
 
-const Overlay = ({ onClickOverlay, currentValue }) => {
+const Overlay = ({ onClickOverlay, currentValue, results }) => {
   const [isShowDialog, setIsShowDialog] = useState(false);
 
   const getIframeWindow = (element) => {
@@ -32,6 +32,7 @@ const Overlay = ({ onClickOverlay, currentValue }) => {
     <div style={overlayStyle} ref={getIframeWindow}>
       {isShowDialog ? (
         <Modal
+          results={results}
           onClose={() => {
             onClickOverlay(false);
             setIsShowDialog(false);
