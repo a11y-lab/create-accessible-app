@@ -45,6 +45,13 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    fallback: {
+      crypto: require.resolve("crypto-browserify"),
+      buffer: require.resolve("buffer"),
+      stream: require.resolve("stream-browserify"),
+    },
+  },
   plugins: [
     new webpack.DefinePlugin({
       // This prevents our bundled Iframe from accidentally hijacking devtools.
