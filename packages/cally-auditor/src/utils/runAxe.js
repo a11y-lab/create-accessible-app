@@ -9,7 +9,11 @@ axe.configure({
 });
 
 const AxeOptions = {
+  selectors: true,
+  source: true,
   elementRef: true,
+  ancestry: true,
+  xpath: true,
   runOnly: {
     type: "tag",
     values: ["wcag2a", "wcag2aa"],
