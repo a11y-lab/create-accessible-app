@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import * as axe from "axe-core";
+import Issues from "./Issues";
 import "./Modal.css";
 
 const Modal = ({ onClose, results }) => {
+  const { violations = [], incomplete = [], inapplicable = [] } = results;
+
   const [selectedItem, setSelectedItem] = useState(
-    results?.violations?.[0] ||
-      results?.incomplete?.[0] ||
-      results?.inapplicable?.[0] ||
-      null
+    violations?.[0] || incomplete?.[0] || inapplicable?.[0] || null
   );
+
+  const failureItems = [...violations, ...incomplete];
 
   return (
     <div className={"modal"}>
@@ -16,36 +18,17 @@ const Modal = ({ onClose, results }) => {
         close
       </button>
       <section className={"issues"}>
-        <article className={"article"}>
-          <h1>ISSUES</h1>
-          <ul className={"list"}>
-            {results?.violations?.map((item) => (
-              <li key={item.id} onClick={() => setSelectedItem(item)}>
-                {item.description}
-              </li>
-            ))}
-            {results?.incomplete?.map((item) => (
-              <li key={item.id} onClick={() => setSelectedItem(item)}>
-                {item.description}
-              </li>
-            ))}
-            {results?.violations?.length === 0 &&
-              results?.incomplete?.length === 0 && (
-                <li>No issues, great job!</li>
-              )}
-          </ul>
-        </article>
+        <Issues
+          title={"ISSUES"}
+          list={failureItems}
+          onClickIssue={(item) => setSelectedItem(item)}
+        />
         {results?.inapplicable && (
-          <article className={"article"}>
-            <h1>NEEDS CHECK MANUALLY</h1>
-            <ul className={"list"}>
-              {results?.inapplicable?.map((item) => (
-                <li key={item.id} onClick={() => setSelectedItem(item)}>
-                  {item.description}
-                </li>
-              ))}
-            </ul>
-          </article>
+          <Issues
+            title={"NEEDS CHECK MANUALLY"}
+            list={inapplicable}
+            onClickIssue={(item) => setSelectedItem(item)}
+          />
         )}
         <ul></ul>
       </section>
