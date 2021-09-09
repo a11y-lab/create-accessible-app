@@ -12,20 +12,7 @@ function clearConsole() {
 }
 
 // https://webpack.js.org/api/node/
-const compiler = webpack(config, (err, stats) => {
-  clearConsole();
-  // [Stats Object](#stats-object)
-  if (err || stats.hasErrors()) {
-    // [Handle errors here](#error-handling)
-    console.log(chalk.red("Failed to compile."));
-    return;
-  }
-  // Done processing
-  console.log(chalk.green("Compiled successfully!"));
-  console.log();
-  console.log("The app is running at http://localhost:9000/");
-  console.log();
-});
+const compiler = webpack(config);
 
 new WebpackDevServer(compiler).listen(9000, "localhost", function (err) {
   if (err) {
