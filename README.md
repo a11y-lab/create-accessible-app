@@ -1,5 +1,13 @@
 # Create Accessible App (CAA)
 
+## Getting Started
+```sh
+npx create-accessible-app new-app
+cd new-app
+npm run start
+```
+Finally, you can see your accessible app!
+
 ## Testing
 test for cli
 ```sh
