@@ -24,6 +24,17 @@ test for created app by CAA in production mode
 npm run build
 ```
 
+## Packages
+### cally-builder
+Builds a new app and install dependencies in it. <br>
+Supports HMR(Hot Module Replacement), You can test your app immediately <br>
+When you run a command in the app, use scripts of cally-builder 
+
+### cally-auditor
+Audits accessibility score using [dequelabs/axe-core](https://github.com/dequelabs/axe-core) <br>
+Scoring rule refers to [GoogleChrome/lighthouse](https://github.com/GoogleChrome/lighthouse) <br>
+Provides webpackHotDevClient to show score overlay
+
 ## Contributing
 
 ### Commit style
