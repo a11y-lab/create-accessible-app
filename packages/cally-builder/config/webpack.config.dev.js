@@ -13,14 +13,13 @@ module.exports = {
   // Run webpack-dev-server
   devServer: {
     // Tell the server where to serve content from. This is only necessary if you want to serve static files.
-    static: {
-      directory: paths.appPublic,
-    },
+    contentBase: paths.appPublic,
+    contentBasePublicPath: "/",
     // Enable gzip compression for everything served:
     compress: true,
     port: 9000,
   },
-  entry: ["./packages/cally-auditor/webpackHotDevClient", paths.appIndexJs],
+  entry: ["@a11y-lab/cally-auditor/webpackHotDevClient.js", paths.appIndexJs],
   // Attempt to resolve these extensions in order
   // if import App from './App', webpack find a file from it. 'App.js', 'App.jsx', 'App.json'
   resolve: {
